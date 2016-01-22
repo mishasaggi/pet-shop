@@ -10,12 +10,6 @@ app.get('/scripts/app-bundle.js',
   browserify('./client/main.js'));
 
 //
-// Serve sass file for GET /styles/main.css
-//
-var sass = require('node-sass-endpoint');
-app.get('/styles/main.css', sass.serve('./client/main.scss'));
-
-//
 // Non-js static files
 //
 app.use(express.static('client/public'));
