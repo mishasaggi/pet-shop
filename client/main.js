@@ -6,5 +6,11 @@ var m = require('mithril');
 var PetShopWindow = require('./components/PetShopWindow');
 
 m.route(document.getElementById('app'), '/', {
-  '/': PetShopWindow
+  '/': {
+    controller: function(){},
+    view: function(){
+      return m('.app', [
+        m.component(PetShopWindow)])
+    }
+  }
 });

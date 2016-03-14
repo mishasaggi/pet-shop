@@ -6,8 +6,9 @@ var app = express();
 //
 // Serve a browserified file for GET /scripts/app-bundle.js
 //
-app.get('/scripts/app-bundle.js',
-  browserify('./client/main.js'));
+var shared = ['mithril']
+app.get('/scripts/vendor-bundle.js', browserify(shared))
+app.get('/scripts/app-bundle.js', browserify('./client/main.js', { external: shared }));
 
 //
 // Non-js static files
